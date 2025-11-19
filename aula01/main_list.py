@@ -27,6 +27,7 @@ w = [0.24550877909173696, 0.8457522326392307, 0.5045879196405884, 0.551469488320
 # b = viés
 b = rd.random()
 
+# em cada época ele treina com todos os dados
 epochs = 100
 for i in range(epochs):
     t = 1.0
@@ -36,13 +37,13 @@ for i in range(epochs):
     
     error = 0.5 * pow((t - y), 2)
     
-    for i in range(len(x)):
-        derivada_vies = (y - t) * y*(1 - y)* x[i]
+    for j in range(len(x)):
+        derivada_vies = (y - t) * y*(1 - y)* x[j]
         derivada_peso = (y - t) * y*(1 - y)
     
-    w[i] = w[i] - lr * derivada_peso
+    w[j] = w[j] - lr * derivada_peso
     b = b - lr * derivada_vies
     
-    print(sigmoid(S(x,w,b)), error)
+    print(f"Época: {i}, Saída: {sigmoid(S(x,w,b))}, Erro: {error}")
     pass
-# print(w)
+print(w)
