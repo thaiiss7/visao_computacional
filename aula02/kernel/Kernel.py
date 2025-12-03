@@ -195,7 +195,7 @@ class Kernel:
 
 	def apply_kernel(self):
 
-		filtered_image = self.filter_function(self.image, self.kernel)
+		filtered_image = self.filter_function(self.image.copy(), self.kernel.copy())
 		filtered_image = np.array(filtered_image)
 
 		img = Image.fromarray(filtered_image.astype(np.uint8))
