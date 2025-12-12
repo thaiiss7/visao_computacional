@@ -1,2 +1,4 @@
-Data.zip
+*.zip
 venv
+**/Data/
+*.keras
